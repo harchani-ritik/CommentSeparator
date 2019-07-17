@@ -19,21 +19,32 @@ public class Main {
             {
                 if(line.contains("//")) {
                     String word[] = line.split("//");
-                    bw.write(word[0]);
+                    if (word[0].trim().length() > 0) {
+                        bw.write(word[0]);
+                        bw.newLine();
+                    }
                 }
                 else if(line.contains("/*"))
                 {
                     String word[] = line.split("/*");
-                    bw.write(word[0]);
+                    if (word[0].trim().length() > 0) {
+                        bw.write(word[0]);
+                        bw.newLine();
+                    }
                     while (!line.contains("*/"))
                         line=br.readLine();
                     String temp[]=line.split("\\*/");
                     if(temp.length>1)
-                        bw.write(temp[temp.length-1]);
+                        if (word[0].trim().length() > 0) {
+                            bw.write(word[0]);
+                            bw.newLine();
+                        }
                 }
                 else
+                if (line.trim().length() > 0) {
                     bw.write(line);
-                bw.newLine();
+                    bw.newLine();
+                }
                 line=br.readLine();
             }
             br.close();
